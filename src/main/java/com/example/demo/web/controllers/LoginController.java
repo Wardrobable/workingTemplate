@@ -47,6 +47,7 @@ public class LoginController {
         model.addAttribute("climates", climateRepository.findAll());
         model.addAttribute("occasions", occasionRepository.findAll());
         model.addAttribute("winds", windRepository.findAll());
+        model.addAttribute("items",itemRepository.findAll());
     }
 
     @RequestMapping("/login")

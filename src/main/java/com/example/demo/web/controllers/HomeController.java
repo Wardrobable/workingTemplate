@@ -88,6 +88,7 @@ public class HomeController {
          */
         if (user != null) {
             model.addAttribute("formAttributes", new FormAttributes());
+            model.addAttribute("items",itemRepository.findAll());
             if (userService.isUser()) {
                 model.addAttribute("items", itemRepository.findAllByUser(user, PageRequest.of(page, 4)));
             }
@@ -97,6 +98,7 @@ public class HomeController {
         } else {
             model.addAttribute("items", itemRepository.findAll(PageRequest.of(page, 4)));
         }
+
         //model.addAttribute("searchString", null);
         model.addAttribute("currentPage", page);
         return "list";
@@ -107,6 +109,7 @@ public class HomeController {
                              @RequestParam String search,
                              @RequestParam(defaultValue = "0") int page) {
 //        findAll(model);
+
         var user = userService.getUser();
         var searchItems =
                 itemRepository.findAllByNameContainingOrDescriptionContainingAllIgnoreCase(search, search, PageRequest.of(page, 4));
