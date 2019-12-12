@@ -34,9 +34,6 @@ public class DataLoader implements CommandLineRunner {
     WindRepository windRepository;
 
     @Autowired
-    InvalidPasswordRepository invalidPasswordRepository;
-
-    @Autowired
     UserService userService;
 
     @Value("${run.dataloader}")
@@ -48,13 +45,6 @@ public class DataLoader implements CommandLineRunner {
         if (rundataloader) {
             //if you want to run dataloader once then change run.dataloader = true in application.properties.
             // it will help you to not comment out whole class
-
-            //Password
-            var passwords = new HashSet<InvalidPassword>();
-            passwords.add(new InvalidPassword("azerty12!"));
-            passwords.add(new InvalidPassword("12345678!"));
-            passwords.add(new InvalidPassword("password123"));
-            invalidPasswordRepository.saveAll(passwords);
 
             //Role
             roleRepository.save(new Role("USER"));
@@ -151,9 +141,6 @@ public class DataLoader implements CommandLineRunner {
 
             windRepository.save(new Wind("high"));
             var high = windRepository.findByName("high");
-
-            windRepository.save(new Wind("periodic"));
-            var periodic = windRepository.findByName("periodic");
 
             //moe items
             itemRepository.save(new Item("homeboy shirt",

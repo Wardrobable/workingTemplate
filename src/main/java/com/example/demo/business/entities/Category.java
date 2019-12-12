@@ -2,14 +2,12 @@ package com.example.demo.business.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Category implements Serializable {
+public class Category {
 
-    private static final long serialVersionUID = 1L;
     @OneToMany(mappedBy = "category", orphanRemoval = true)
     public Set<Item> items;
     @Id

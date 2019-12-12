@@ -3,7 +3,6 @@ package com.example.demo.web.controllers;
 import com.example.demo.business.entities.User;
 import com.example.demo.business.entities.repositories.*;
 import com.example.demo.business.services.UserService;
-import com.example.demo.business.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -61,7 +60,6 @@ public class LoginController {
         findAll(model);
         if (userService.getUser() != null) {
             model.addAttribute("user", userService.getUser());
-            model.addAttribute("HASH", MD5Util.md5Hex(userService.getUser().getEmail()));
         }
         return "profile";
     }
@@ -130,12 +128,6 @@ public class LoginController {
             }
         }
         return "redirect:/";
-    }
-
-    @GetMapping("/termsandconditions")
-    public String getTermsAndCondition(Model model) {
-        findAll(model);
-        return "termsandconditions";
     }
 
     @RequestMapping("/updateUser")

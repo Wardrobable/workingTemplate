@@ -2,15 +2,12 @@ package com.example.demo.business.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "ROLE_DATA")
-public class Role implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

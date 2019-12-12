@@ -1,19 +1,15 @@
 package com.example.demo.business.entities;
 
-import com.example.demo.business.util.ValidPassword;
-
 import javax.persistence.*;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "USER_DATA")
-public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +21,6 @@ public class User implements Serializable {
     private String email;
 
     @NotEmpty
-    @ValidPassword
     @Column(name = "password")
     private String password;
 

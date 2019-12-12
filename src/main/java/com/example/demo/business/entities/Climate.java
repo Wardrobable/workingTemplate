@@ -2,15 +2,12 @@ package com.example.demo.business.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 //Hot Mild Cold
 @Entity
-public class Climate implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Climate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

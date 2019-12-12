@@ -66,7 +66,6 @@
                     <a class="dropdown-item" href="/addcategory">Add Category</a>
                     <a class="dropdown-item" href="/addclimate">Add Climate</a>
                     <a class="dropdown-item" href="/addoccasion">Add Occasion</a>
-                    <a class="dropdown-item" href="/addwind">Add Wind</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/status">Update Group</a>
                     <div class="dropdown-divider"></div>
@@ -118,23 +117,6 @@
                         <span th:each="option: ${occasions}"
                               th:value="${option.id}">
                              <a class="dropdown-item" th:href="@{/detailoccasion/{id}(id=${option.id})}">[[${option.name}]]</a>
-                        </span>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a aria-expanded="false"
-                   aria-haspopup="true"
-                   class="nav-link dropdown-toggle"
-                   data-toggle="dropdown"
-                   href="#"
-                   id="navbarDropdown6"
-                   role="button">Wind
-                </a>
-                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <span th:each="option: ${winds}"
-                              th:value="${option.id}">
-                             <a class="dropdown-item"
-                                th:href="@{/detailwind/{id}(id=${option.id})}">[[${option.name}]]</a>
                         </span>
                 </div>
             </li>

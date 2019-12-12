@@ -6,9 +6,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-public class Item implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
