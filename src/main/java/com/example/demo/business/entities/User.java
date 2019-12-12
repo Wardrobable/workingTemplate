@@ -1,7 +1,6 @@
 package com.example.demo.business.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
@@ -32,10 +31,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @AssertTrue
-    @Column(name = "enabled")
-    private boolean enabled;
-
     @NotEmpty
     @Column(name = "username", unique = true)
     private String username;
@@ -57,14 +52,12 @@ public class User {
                 @NotEmpty String password,
                 @NotEmpty String firstName,
                 @NotEmpty String lastName,
-                @AssertTrue boolean enabled,
                 @NotEmpty String username) {
         this();
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.enabled = enabled;
         this.username = username;
     }
 
@@ -108,14 +101,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -148,7 +133,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", enabled=" + enabled +
                 ", username='" + username + '\'' +
                 ", roles= [";
              /*   for(Role role : roles){

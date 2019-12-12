@@ -64,11 +64,6 @@ public class LoginController {
         return "profile";
     }
 
-    @PostMapping("/forgot-password")
-    public String forgetPassword() {
-        return "/";
-    }
-
     @GetMapping("/register")
     public String showRegistrationPage(Model model) {
         findAll(model);
@@ -79,13 +74,8 @@ public class LoginController {
 
     @PostMapping("/register")
     public String processRegistrationPage(@Valid @ModelAttribute("user") User user,
-                                          //@ModelAttribute("user") is not neccesary here.
-                                          // We always use if the name of object on form is different than Class
-                                          //e.g. if the User class object on form is user1 instead of user then
-                                          // we have to use this annotation
                                           BindingResult result,
-                                          Model model/*,
-                                          @RequestParam("password") String password*/) {
+                                          Model model) {
         findAll(model);
         model.addAttribute("page_title", "Update Profile");
         if (result.hasErrors()) {
@@ -109,7 +99,6 @@ public class LoginController {
                 userInDB.setEmail(user.getEmail());
                 userInDB.setUsername(user.getUsername());
                 userInDB.setPassword(userService.encode(user.getPassword()));
-                userInDB.setEnabled(user.isEnabled());
                 userRepository.save(userInDB);
                 model.addAttribute("message", "User Account Successfully Updated");
             }
@@ -135,9 +124,6 @@ public class LoginController {
                            HttpServletRequest request,
                            Authentication authentication,
                            Principal principal) {
-       /* Boolean isAdmin = request.isUserInRole("ADMIN");
-        Boolean isUser = request.isUserInRole("USER");
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();*/
 //        String username = principal.getName();
         model.addAttribute("page_title", "Update Profile");
         model.addAttribute("user", userService.getUser());

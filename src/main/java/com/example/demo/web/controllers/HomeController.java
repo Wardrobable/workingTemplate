@@ -67,25 +67,12 @@ public class HomeController {
         return windRepository.findAll();
     }
 
-/*    public void findAll(Model model) {
-        model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("climates", climateRepository.findAll());
-        model.addAttribute("occasions", occasionRepository.findAll());
-        model.addAttribute("winds", windRepository.findAll());
-    }*/
-
     @RequestMapping("/")
     public String listItems(Model model, @RequestParam(defaultValue = "0") int page) {
-//        findAll(model);
+
         var user = userService.getUser();
-        /**
-         * Alternative way to get user
-         *-----------------------------
-         *  var myuser = ((CustomerUserDetails)
-         *                 ((UsernamePasswordAuthenticationToken) principal)
-         *                         .getPrincipal())
-         *                 .getUsers();
-         */
+
+        // Pagination code from Baeldung
         if (user != null) {
             model.addAttribute("formAttributes", new FormAttributes());
             model.addAttribute("items",itemRepository.findAll());
@@ -108,7 +95,6 @@ public class HomeController {
     public String searchword(Model model,
                              @RequestParam String search,
                              @RequestParam(defaultValue = "0") int page) {
-//        findAll(model);
 
         var user = userService.getUser();
         var searchItems =
@@ -133,14 +119,12 @@ public class HomeController {
 
     @RequestMapping("/admin")
     public String admin(Model model) {
-//        findAll(model);
         model.addAttribute("users", userRepository.findAll());
         return "admin";
     }
 
     @GetMapping("/add")
     public String itemForm(Model model) {
-//        findAll(model);
         model.addAttribute("imageLabel", "Upload Image");
         model.addAttribute("myuser", userService.getUser());
         model.addAttribute("item", new Item());
@@ -152,7 +136,6 @@ public class HomeController {
                               BindingResult result,
                               @RequestParam("file") MultipartFile file,
                               Model model) {
-//        findAll(model);
         model.addAttribute("imageLabel", "Upload Image");
         model.addAttribute("myuser", userService.getUser());
         if (result.hasErrors()) {

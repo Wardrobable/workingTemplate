@@ -41,7 +41,6 @@ public class UserService {
         user.setRoles(Arrays.asList(roleRepository.findByRole("USER"))
                 .stream()
                 .collect(Collectors.toSet()));
-        user.setEnabled(true);
         userRepository.save(user);
     }
 
@@ -49,7 +48,6 @@ public class UserService {
         user.setRoles(Arrays.asList(roleRepository.findByRole("ADMIN"))
                 .stream()
                 .collect(Collectors.toSet()));
-        user.setEnabled(true);
         userRepository.save(user);
     }
 

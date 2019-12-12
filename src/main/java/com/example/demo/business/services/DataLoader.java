@@ -54,25 +54,25 @@ public class DataLoader implements CommandLineRunner {
             var adminRole = roleRepository.findByRole("ADMIN");
 
             //User
-            var admin = new User("admin@admin.com", userService.encode("password"), "Admin", "User", true, "admin");
+            var admin = new User("admin@admin.com", userService.encode("password"), "Admin", "User", "admin");
             userService.saveAdmin(admin);
 
-            var moe = new User("mhussainshah79@gmail.com", userService.encode("password"), "Muhammad", "Shah", true, "moe");
+            var moe = new User("mhussainshah79@gmail.com", userService.encode("password"), "Muhammad", "Shah", "moe");
             userService.saveUser(moe);
 
-            var lan = new User("tolani.oyefule@gmail.com", userService.encode("password"), "Tolani", "Oyefule", true, "lan");
+            var lan = new User("tolani.oyefule@gmail.com", userService.encode("password"), "Tolani", "Oyefule", "lan");
             userService.saveUser(lan);
 
-            var nan = new User("nhan.cog.huynh@gmail.com", userService.encode("password"), "Nhan", "Huynh", true, "nan");
+            var nan = new User("nhan.cog.huynh@gmail.com", userService.encode("password"), "Nhan", "Huynh", "nan");
             userService.saveUser(nan);
 
-            var dag = new User("dag@gmail.com", userService.encode("password"), "Dag", "Fasil", true, "dag");
+            var dag = new User("dag@gmail.com", userService.encode("password"), "Dag", "Fasil", "dag");
             userService.saveUser(dag);
 
-            var mel = new User("melissafong@gmail.com", userService.encode("password"), "Mellisa", "Lavander", true, "mel");
+            var mel = new User("melissafong@gmail.com", userService.encode("password"), "Mellisa", "Lavander", "mel");
             userService.saveUser(mel);
 
-            var jen = new User("jen@gmail.com", userService.encode("password"), "Jennifer", "You", true, "jen");
+            var jen = new User("jen@gmail.com", userService.encode("password"), "Jennifer", "You", "jen");
             userService.saveUser(jen);
 
             //Category
@@ -165,8 +165,7 @@ public class DataLoader implements CommandLineRunner {
                     moe,
                     bottom,
                     cold,
-                    casual,
-                    moderate));
+                    casual, moderate));
             var pant = itemRepository.findByName("cargo pant");
 
             itemRepository.save(
