@@ -147,6 +147,7 @@ public class DataLoader implements CommandLineRunner {
                     "grey",
                     "cotton",
                     "small",
+                    "short Sleeve",
                     "https://res.cloudinary.com/toyefule/image/upload/c_fill,g_face,h_150,r_50,w_150/v1553799014/Outfit/JESUS_IS_MY_HOMEBOY_heathergrey_2000x.jpg",
                     "men's wear",
                     moe,
@@ -156,7 +157,8 @@ public class DataLoader implements CommandLineRunner {
                     light));
             var Homeboyshirt = itemRepository.findByName("homeboy shirt");
 
-            itemRepository.save(new Item("cargo pants",
+            //these dataloaders dont contain length
+           /* itemRepository.save(new Item("cargo pants",
                     "khaki",
                     "polyester",
                     "medium",
@@ -509,7 +511,7 @@ public class DataLoader implements CommandLineRunner {
                             jacket,
                             cold,
                             casual, moderate));
-            lightJacket = itemRepository.findByName("winter hoodie vest2");
+            lightJacket = itemRepository.findByName("winter hoodie vest2");*/
 
     /*//moe items
         itemRepository.save(new Item("shirt",

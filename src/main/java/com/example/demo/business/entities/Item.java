@@ -25,6 +25,9 @@ public class Item {
     @NotEmpty
     private String size;
 
+    @NotEmpty
+    private String length;
+
     @NotNull
     private String picturePath;
 
@@ -55,11 +58,12 @@ public class Item {
         wind = new Wind();
     }
 
-    public Item(@NotEmpty String name, @NotEmpty String color, @NotEmpty String material, @NotEmpty String size, @NotNull String picturePath, @NotEmpty String description, User user, Category category, Climate climate, Occasion occasion, Wind wind) {
+    public Item(@NotEmpty String name, @NotEmpty String color, @NotEmpty String material, @NotEmpty String size,@NotEmpty String length, @NotNull String picturePath, @NotEmpty String description, User user, Category category, Climate climate, Occasion occasion, Wind wind) {
         this.name = name;
         this.color = color;
         this.material = material;
         this.size = size;
+        this.length = length;
         this.picturePath = picturePath;
         this.description = description;
         this.user = user;
@@ -166,7 +170,13 @@ public class Item {
         this.wind = wind;
     }
 
+    public String getLength() {
+        return length;
+    }
 
+    public void setLength(String lenght) {
+        this.length = lenght;
+    }
     @Override
     public String toString() {
         return "Item{" +
@@ -175,6 +185,7 @@ public class Item {
                 ", color='" + color + '\'' +
                 ", material='" + material + '\'' +
                 ", size='" + size + '\'' +
+                ", length='" +length + '\'' +
                 ", picturePath='" + picturePath + '\'' +
                 ", description='" + description + '\'' +
                 ", user=" + user.getUsername() +
@@ -184,4 +195,6 @@ public class Item {
                 ", wind=" + wind.getName() +
                 '}';
     }
+
+
 }

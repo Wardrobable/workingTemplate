@@ -103,6 +103,18 @@
                 </strong>
             </div>
         </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="length">length :</label>
+            <div class="col-sm-10 text-left">
+                <input class="form-control" id="length" placeholder="length" th:field="*{length}" type="text"/>
+                <strong>
+                    <span class="error-message"
+                          th:errors="*{length}"
+                          th:if="${#fields.hasErrors('length')}">
+                    </span>
+                </strong>
+            </div>
+        </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="description">Description :</label>
